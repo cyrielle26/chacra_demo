@@ -1,0 +1,67 @@
+install the npm
+
+npm i @chakra-ui/layout
+
+go to the index.js file
+
+add 
+<React.StrictMode>
+    <ChakraProvider>
+      <App />
+    </ChakraProvider>
+  </React.StrictMode>
+
+
+create a file with all the theme ex _theme (you need _ because theme is already use a commend key)
+
+exemple: _theme.js
+
+import { extendBaseTheme, theme as chakraTheme } from "@chakra-ui/react";
+
+const { Button, Modal } = chakraTheme.components;
+
+const components = {
+    Button,
+    Modal,
+};
+
+
+const _theme = extendBaseTheme({
+    components,
+     
+});
+
+export default _theme;
+
+
+
+====> add _theme to the index.js file 
+
+import _theme from './theme';
+
+  <React.StrictMode>
+    <ChakraProvider theme={_theme}>
+      <App />
+    </ChakraProvider>
+  </React.StrictMode>
+
+
+
+==>add font
+
+if necessary go get the npm to the font
+
+then go to the _theme file and add it ex: npm i @fontsource/noto-sans-kr
+
+const fonts = {
+    fonts: {
+        heading: `'Noto Sans KR', sans-serif`,
+        body: `'Noto Sans KR', sans-serif`,
+      },
+}
+
+const _theme = extendBaseTheme({
+    components,
+    fonts
+     
+});
